@@ -72,6 +72,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+
                         <div class="mb-3">
                             <label for="bankSelect" class="form-label">Select Bank</label>
                             <select class="form-select" id="bankSelect">
@@ -133,25 +134,45 @@
             localStorage.removeItem('cart');
             loadCart();
         }
-
         function approvePayment() {
-            let bank = document.getElementById('bankSelect').value;
-            let accountNumber = document.getElementById('accountNumber').value;
+    let bank = document.getElementById('bankSelect').value;
+    let accountNumber = document.getElementById('accountNumber').value;
 
-            if (bank === "Choose..." || accountNumber === "") {
-                alert("Please select a bank and enter an account number!");
-                return;
-            }
+    if (bank === "Choose..." || accountNumber === "") {
+        alert("Please select a bank and enter an account number!");
+        return;
+    }
 
-            alert(`Payment Approved!\nBank: ${bank}\nAccount Number: ${accountNumber}`);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
 
-            // Reset cart
-            clearCart();
+    // Simpan info pembayaran
+    let paymentInfo = {
+        bank: bank,
+        accountNumber: accountNumber,
+        cart: cart,
+        total: document.getElementById('total-price').textContent
+    };
+    localStorage.setItem('deliveryInfo', JSON.stringify(paymentInfo));
 
-            // Tutup modal selepas bayar
-            let paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
-            paymentModal.hide();
-        }
+    alert(`Payment Approved!\nBank: ${bank}\nAccount Number: ${accountNumber}`);
+
+    
+    clearCart();
+
+    // Tutup modal
+    let paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+    paymentModal.hide();
+
+    // Arahkan ke halaman Delivery Info
+    window.location.href = "delivery.html";
+}
+
+
 
         // Pastikan butang "Cancel" betul-betul tutup modal
         document.getElementById('cancelPayment').addEventListener('click', function () {
