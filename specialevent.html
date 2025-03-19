@@ -68,10 +68,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <input type="text" id="searchInput" class="form-control d-inline-block" placeholder="Search..." style="width: 200px;">
-                        <button class="btn btn-outline-light ms-2" onclick="searchWebsite()">🔍</button>
-                    </li>
+                    
                     <li class="nav-item">
                         <button class="btn btn-outline-light ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
                             ☰
@@ -90,72 +87,110 @@
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="product.html">Products</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="delivery.html">Delivery Info</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="contactus.html">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="specialevent.html">Special Event</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Special Event</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="signup.html">Log out</a></li>
             </ul>
         </div>
     </div>
-
-   <!-- Carousel (Slide Gambar Produk) -->
-<div class="container text-center mt-5">
-    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="3"></button> <!-- Gambar ke-4 -->
-        </div>
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <span class="badge-banner">New</span>
-                <img src="exclusive socks.jpeg" class="d-block" alt="Product 1">
-            </div>
-            <div class="carousel-item">
-                <span class="badge-banner" style="background-color: orange;">Hot</span>
-                <img src="custom socks.jpeg" class="d-block" alt="Product 2">
-            </div>
-            <div class="carousel-item">
-                <span class="badge-banner" style="background-color: blue;">Sale</span>
-                <img src="designersocks.jpeg" class="d-block" alt="Product 3">
-            </div>
-            <div class="carousel-item"> <!-- Gambar ke-4 -->
-                <span class="badge-banner" style="background-color: green;">Exclusive</span>
-                <img src="luxury socks.jpeg" class="d-block" alt="Product 4">
-            </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-</div>
-
- <!-- Company Description with Logo -->
+<!-- Poster Section -->
 <div class="container mt-5">
-    <div class="row align-items-center">
-        <!-- Logo Section -->
-        <div class="col-md-4 text-center">
-            <img src="bg.png" alt="Company Logo" class="img-fluid" style="max-width: 400px;">
+    <div class="row">
+        <!-- Poster 1 -->
+        <div class="col-md-6">
+            <div class="poster-card">
+                <img src="poster1.jpeg" class="poster-img" alt="Poster 1">
+                <div class="overlay">
+                    <h3 class="poster-title">Limited-Time Offer!</h3>
+                    <p class="poster-text">Get amazing discounts on our products.</p>
+                    <a href="product.html" class="btn btn-warning fw-bold">Shop Now</a>
+                </div>
+            </div>
         </div>
-        <!-- Description Section -->
-        <div class="col-md-8">
-            <p style="font-size: 1.3rem; font-weight: 500; line-height: 1.6;">
-                <strong>Tulang Belakang Sdn Bhd</strong> is a premium sock brand that combines Japanese craftsmanship with modern fashion to create stylish, high-quality socks. 
-            </p>
-            <p style="font-size: 1.2rem; line-height: 1.6;">
-                We are committed to sustainability, using eco-friendly materials and innovative designs to provide both comfort and elegance. Our mission is to redefine socks as a fashion statement while ensuring durability, functionality, and global accessibility through our e-commerce platform.
-            </p>
+
+        <!-- Poster 2 -->
+        <div class="col-md-6">
+            <div class="poster-card">
+                <img src="poster2.jpg" class="poster-img" alt="Poster 2">
+                <div class="overlay">
+                    <h3 class="poster-title">New Arrival!</h3>
+                    <p class="poster-text">Our latest products are here! Don't miss out.</p>
+                    <a href="product.html" class="btn btn-warning fw-bold">Shop Now</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+<style>
+    /* Styling Poster */
+    .poster-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .poster-card:hover {
+        transform: scale(1.05);
+    }
+
+    .poster-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Overlay effect */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .poster-card:hover .overlay {
+        opacity: 1;
+    }
+
+    /* Styling tulisan */
+    .poster-title,
+    .poster-text,
+    .btn {
+        color: white;
+        text-align: center;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .poster-card:hover .poster-title,
+    .poster-card:hover .poster-text,
+    .poster-card:hover .btn {
+        transform: translateY(0);
+        opacity: 1;
+    }
+</style>
+
+
+
+
+
 
 
 <!-- Footer -->
@@ -207,27 +242,6 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 
-    <script>
-        function searchWebsite() {
-            let searchText = document.getElementById("searchInput").value.trim().toLowerCase();
-            let elements = document.querySelectorAll("body *:not(script):not(style):not(head):not(title)");
-    
-            // Hapus highlight lama
-            document.querySelectorAll("mark").forEach(mark => {
-                mark.replaceWith(mark.textContent);
-            });
-    
-            if (searchText === "") return; // Jika input kosong, hentikan
-    
-            // Loop semua elemen teks dan highlight yang sepadan
-            elements.forEach(element => {
-                if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
-                    let regex = new RegExp(searchText, "gi");
-                    element.innerHTML = element.textContent.replace(regex, match => `<mark>${match}</mark>`);
-                }
-            });
-        }
-    </script>
     
 </body>
 </html>
